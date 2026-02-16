@@ -1,0 +1,96 @@
+/* Social icons + WhatsApp button */
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: inherit;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.social-icon:hover {
+  opacity: 0.9;
+  transform: scale(1.08);
+}
+
+.social-icon:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Top bar (third contrast): light icons on dark */
+.top-bar .social-icon {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.top-bar .social-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.top-bar .social-icon--whatsapp:hover {
+  background: #25d366;
+  color: white;
+}
+
+/* Footer: light icons on dark */
+.site-footer .social-icon {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.site-footer .social-icon:hover {
+  background: rgba(255, 255, 255, 0.22);
+  color: white;
+}
+
+.site-footer .social-icon--whatsapp:hover {
+  background: #25d366;
+  color: white;
+}
+
+/* WhatsApp button with label (e.g. "Chat on WhatsApp") */
+.social-icon__label {
+  margin-left: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* WhatsApp pill button in header/footer */
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  width: auto;
+  height: auto;
+  min-width: auto;
+  border-radius: 999px;
+  background: #25d366;
+  color: white;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.whatsapp-btn:hover {
+  background: #20bd5a;
+  color: white;
+  text-decoration: none;
+  transform: scale(1.02);
+}
+
+.whatsapp-btn svg {
+  flex-shrink: 0;
+}

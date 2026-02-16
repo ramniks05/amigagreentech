@@ -1,0 +1,71 @@
+/* Amiga Green Tech - Global styles */
+:root {
+  --color-primary: #0d7a4a;
+  --color-primary-dark: #065a36;
+  --color-primary-light: #0e9c5c;
+  --color-accent: #14b8a6;
+  /* Third contrast: top header bar (distinct from primary greens) */
+  --color-topbar: #0f2d28;
+  --color-text: #1a2e28;
+  --color-text-muted: #4a6b62;
+  --color-bg: #f8fbf9;
+  --color-bg-card: #ffffff;
+  --color-border: #d4e8e0;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+  --shadow-sm: 0 1px 3px rgba(13, 122, 74, 0.08);
+  --shadow-md: 0 4px 12px rgba(13, 122, 74, 0.1);
+  --shadow-lg: 0 12px 32px rgba(13, 122, 74, 0.12);
+  --radius: 8px;
+  --radius-lg: 12px;
+  --max-width: 1120px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul, ol {
+  list-style: none;
+}
