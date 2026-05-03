@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
 import { SurveyQRBlock } from './SurveyQR'
+import { COMPANY, FOCUS_AREAS, RESEARCH_HIGHLIGHTS } from '../company'
 import './AboutUs.css'
 
 const OBJECTIVES = [
@@ -13,21 +15,13 @@ const OBJECTIVES = [
 ]
 
 const STATS = [
-  { value: '50+', label: 'Projects Delivered', icon: 'projects' },
-  { value: '10+', label: 'Years Experience', icon: 'years' },
-  { value: '100%', label: 'Clean Energy Focus', icon: 'clean' },
-  { value: '24/7', label: 'Support', icon: 'support' },
+  { value: '4', label: 'R&D focus areas', icon: 'projects' },
+  { value: '6', label: 'Corporate pillars', icon: 'clean' },
+  { value: '100%', label: 'Sustainability led', icon: 'years' },
+  { value: '24/7', label: 'Public engagement', icon: 'support' },
 ]
 
-const SERVICES = [
-  { title: 'Solar Power Systems', short: 'Rooftop & utility-scale solar solutions', icon: 'solar', image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400&q=80' },
-  { title: 'EV & Battery Solutions', short: 'EV batteries, BMS & charging infrastructure', icon: 'ev', image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=400&q=80' },
-  { title: 'Energy Storage', short: 'Grid storage & microgrid systems', icon: 'storage', image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&q=80' },
-  { title: 'EPC & Consultancy', short: 'Feasibility, audits & project execution', icon: 'consult', image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&q=80' },
-]
-
-const HERO_IMAGE = 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=85'
-const ABOUT_IMAGE = 'https://images.unsplash.com/photo-1559302504-64aae0ca2a3d?w=600&q=80'
+const HERO_IMAGE = '/images/about-green-energy.png'
 
 function AboutUs() {
   return (
@@ -35,28 +29,40 @@ function AboutUs() {
       <Header />
 
       <main>
-        {/* Hero: split layout with image */}
-        <section className="hero" id="about">
+        <section className="hero" id="about" aria-labelledby="hero-heading">
+          <div className="hero-bg" aria-hidden />
           <div className="hero-inner">
             <div className="hero-content">
-              <p className="hero-label">About Us</p>
-              <h1 className="hero-title">Powering a sustainable future with clean energy</h1>
+              <span className="hero-eyebrow">{COMPANY.industry}</span>
+              <h1 id="hero-heading" className="hero-title">
+                {COMPANY.tagline}
+              </h1>
               <p className="hero-lead">
-                Amiga Green Tech is committed to research, development, and deployment of renewable energy technologies, advanced battery systems, and smart energy solutions for industrial, commercial, and domestic use.
+                {COMPANY.vision}
               </p>
-              <a href="#objectives" className="hero-cta">Our objectives</a>
+              <div className="hero-actions">
+                <Link to="/research" className="hero-cta hero-cta--primary">Explore our research</Link>
+                <Link to="/survey" className="hero-cta hero-cta--ghost">Participate in survey</Link>
+              </div>
+              <p className="hero-meta">
+                <a href="#objectives" className="hero-meta-link">Corporate objectives (MoA)</a>
+                {' · '}
+                <Link to="/about" className="hero-meta-link">About the company</Link>
+              </p>
             </div>
             <div className="hero-media">
-              <img src={HERO_IMAGE} alt="Solar panels and renewable energy" className="hero-img" loading="lazy" />
-              <div className="hero-media-badge">
-                <span className="hero-badge-icon" aria-hidden>⚡</span>
-                <span>Green Energy</span>
+              <div className="hero-media-frame">
+                <img src={HERO_IMAGE} alt="Illustration: solar landscape and clean energy" className="hero-img" loading="eager" />
               </div>
+              <ul className="hero-tags" aria-label="Focus areas">
+                {FOCUS_AREAS.map((f) => (
+                  <li key={f.key}>{f.title}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
 
-        {/* Stats strip */}
         <section className="stats" aria-label="Key highlights">
           <div className="stats-inner">
             {STATS.map((item) => (
@@ -69,80 +75,85 @@ function AboutUs() {
           </div>
         </section>
 
-        {/* About + image */}
-        <section className="about-block">
-          <div className="about-block-inner">
-            <div className="about-media">
-              <img src={ABOUT_IMAGE} alt="Renewable energy and technology" className="about-img" loading="lazy" />
-            </div>
-            <div className="about-content">
-              <h2 className="about-title">Why Amiga Green Tech</h2>
-              <p className="about-text">
-                We combine expertise in solar power, EV batteries, and energy storage with end-to-end services—from design and manufacturing to EPC and consultancy—so our clients get reliable, sustainable power solutions.
-              </p>
-              <ul className="about-list">
-                <li><span className="about-list-icon" aria-hidden>✓</span> Solar & photovoltaic systems</li>
-                <li><span className="about-list-icon" aria-hidden>✓</span> EV batteries & charging infrastructure</li>
-                <li><span className="about-list-icon" aria-hidden>✓</span> Energy storage & microgrids</li>
-                <li><span className="about-list-icon" aria-hidden>✓</span> Feasibility studies & energy audits</li>
-              </ul>
-            </div>
+        <section className="snapshot" aria-labelledby="snapshot-heading">
+          <div className="snapshot-inner">
+            <h2 id="snapshot-heading" className="snapshot-title">About {COMPANY.shortName}</h2>
+            <p className="snapshot-text">
+              {COMPANY.legalName} builds credibility as an R&amp;D-driven green technology company—showcasing research, running public surveys for data, and engaging investors, partners, government stakeholders, and the wider public on sustainability.
+            </p>
           </div>
         </section>
 
-        {/* Objectives */}
-        <section className="objectives" id="objectives" aria-labelledby="objectives-heading">
-          <div className="objectives-inner">
-            <h2 id="objectives-heading" className="section-title">Main objectives of the company</h2>
-            <p className="section-intro">Our corporate objectives define our mission to lead in renewable energy and sustainable power solutions.</p>
-            <ul className="objectives-grid">
-              {OBJECTIVES.map((obj) => (
-                <li key={obj.id} className="objective-card">
-                  <div className="objective-card-header">
-                    <span className="objective-number">{String(obj.id).padStart(2, '0')}</span>
-                    <span className="objective-icon" aria-hidden data-icon={obj.icon} />
-                  </div>
-                  <h3 className="objective-title">{obj.title}</h3>
-                  <p className="objective-summary">{obj.summary}</p>
-                  <p className="objective-description">{obj.description}</p>
+        <section className="focus-section" aria-labelledby="focus-heading">
+          <div className="focus-inner">
+            <header className="focus-head">
+              <span className="focus-kicker">What we work on</span>
+              <h2 id="focus-heading" className="focus-title">Key focus areas</h2>
+            </header>
+            <ul className="focus-grid">
+              {FOCUS_AREAS.map((f) => (
+                <li key={f.key} className="focus-card">
+                  <span className="focus-icon" aria-hidden data-icon={f.icon} />
+                  <h3 className="focus-card-title">{f.title}</h3>
+                  <p className="focus-card-text">{f.description}</p>
                 </li>
               ))}
             </ul>
           </div>
         </section>
 
-        {/* Services / What we do */}
-        <section className="services" aria-labelledby="services-heading">
-          <div className="services-inner">
-            <h2 id="services-heading" className="section-title">What we do</h2>
-            <p className="section-intro">End-to-end solutions in renewable energy and sustainable power.</p>
-            <div className="services-grid">
-              {SERVICES.map((svc) => (
-                <article key={svc.title} className="service-card">
-                  <div className="service-card-image">
-                    <img src={svc.image} alt="" loading="lazy" />
-                    <span className="service-card-icon" aria-hidden data-icon={svc.icon} />
+        <section className="research-teaser" aria-labelledby="research-teaser-heading">
+          <div className="research-teaser-inner">
+            <header className="research-teaser-head">
+              <span className="research-teaser-kicker">R&amp;D</span>
+              <h2 id="research-teaser-heading" className="research-teaser-title">Current research highlights</h2>
+              <p className="research-teaser-lead">A snapshot of themes we communicate to partners and the public—full detail on the research page.</p>
+            </header>
+            <ul className="research-teaser-grid">
+              {RESEARCH_HIGHLIGHTS.map((r) => (
+                <li key={r.title} className="research-teaser-card">
+                  <h3 className="research-teaser-card-title">{r.title}</h3>
+                  <p className="research-teaser-card-text">{r.text}</p>
+                </li>
+              ))}
+            </ul>
+            <div className="research-teaser-cta">
+              <Link to="/research" className="research-teaser-btn">Research &amp; innovation →</Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="objectives" id="objectives" aria-labelledby="objectives-heading">
+          <div className="objectives-inner">
+            <header className="objectives-head">
+              <span className="objectives-kicker">Our mandate</span>
+              <h2 id="objectives-heading" className="objectives-title">Corporate objectives</h2>
+              <p className="objectives-lead">
+                Six pillars of our memorandum of association—renewable energy, batteries, storage, services, partnerships, and IP. Tap a card to read the full legal wording.
+              </p>
+            </header>
+            <div className="objectives-grid">
+              {OBJECTIVES.map((obj) => (
+                <details key={obj.id} name="corp-objectives" className="objective-card">
+                  <summary className="objective-card__summary">
+                    <span className="objective-num">{String(obj.id).padStart(2, '0')}</span>
+                    <span className="objective-icon" aria-hidden data-icon={obj.icon} />
+                    <div className="objective-card__titles">
+                      <h3 className="objective-card__name">{obj.title}</h3>
+                      <p className="objective-card__tagline">{obj.summary}</p>
+                    </div>
+                    <span className="objective-chevron" aria-hidden />
+                  </summary>
+                  <div className="objective-card__panel">
+                    <p className="objective-card__legal">{obj.description}</p>
                   </div>
-                  <div className="service-card-body">
-                    <h3 className="service-card-title">{svc.title}</h3>
-                    <p className="service-card-short">{svc.short}</p>
-                  </div>
-                </article>
+                </details>
               ))}
             </div>
           </div>
         </section>
 
         <SurveyQRBlock />
-
-        {/* CTA */}
-        <section className="cta" id="contact">
-          <div className="cta-inner">
-            <h2 className="cta-title">Partner with us</h2>
-            <p className="cta-text">For enquiries on renewable energy solutions, EPC, consultancy, or collaboration opportunities.</p>
-            <a href="mailto:contact@amigagreentech.com" className="cta-button">Get in touch</a>
-          </div>
-        </section>
       </main>
 
       <Footer />

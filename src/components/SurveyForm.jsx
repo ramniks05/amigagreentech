@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import { SurveyQR } from './SurveyQR'
+import { COMPANY } from '../company'
 import './SurveyForm.css'
 
 const VEHICLE_TYPES = [
@@ -140,6 +141,7 @@ function SurveyForm() {
         <div className="survey-container">
           <h1 className="survey-title">Green Energy & Electric Vehicle (EV) Survey</h1>
           <p className="survey-subtitle">Help us understand your experience and awareness.</p>
+          <p className="survey-byline">Public research survey · {COMPANY.shortName}</p>
 
           <div className="survey-share-strip">
             <SurveyQR size={72} showLabel={false} variant="card" />

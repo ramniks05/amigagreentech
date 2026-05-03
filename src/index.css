@@ -1,24 +1,26 @@
-/* Amiga Green Tech - Global styles */
+/* Amigas Green Tech — client palette (#2E7D32) */
 :root {
-  --color-primary: #0d7a4a;
-  --color-primary-dark: #065a36;
-  --color-primary-light: #0e9c5c;
-  --color-accent: #14b8a6;
+  --color-primary: #2e7d32;
+  --color-primary-dark: #1b5e20;
+  --color-primary-light: #43a047;
+  --color-accent: #26a69a;
   /* Third contrast: top header bar (distinct from primary greens) */
-  --color-topbar: #0f2d28;
-  --color-text: #1a2e28;
-  --color-text-muted: #4a6b62;
-  --color-bg: #f8fbf9;
+  --color-topbar: #1b3d1f;
+  --color-text: #1a2e24;
+  --color-text-muted: #4a6356;
+  --color-bg: #f7faf7;
   --color-bg-card: #ffffff;
-  --color-border: #d4e8e0;
+  --color-border: #cfe8d4;
   --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
   --font-display: 'Fraunces', Georgia, serif;
-  --shadow-sm: 0 1px 3px rgba(13, 122, 74, 0.08);
-  --shadow-md: 0 4px 12px rgba(13, 122, 74, 0.1);
-  --shadow-lg: 0 12px 32px rgba(13, 122, 74, 0.12);
+  --shadow-sm: 0 1px 3px rgba(46, 125, 50, 0.08);
+  --shadow-md: 0 4px 12px rgba(46, 125, 50, 0.1);
+  --shadow-lg: 0 12px 32px rgba(46, 125, 50, 0.12);
   --radius: 8px;
   --radius-lg: 12px;
-  --max-width: 1120px;
+  /* Standard content width + responsive horizontal padding */
+  --max-width: 1200px;
+  --page-gutter: clamp(1rem, 4vw, 2rem);
 }
 
 *,

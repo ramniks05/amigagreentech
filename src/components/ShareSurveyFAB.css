@@ -24,7 +24,7 @@
 .share-fab:hover {
   background: var(--color-primary-dark);
   transform: scale(1.03);
-  box-shadow: 0 8px 24px rgba(13, 122, 74, 0.35);
+  box-shadow: 0 8px 24px rgba(46, 125, 50, 0.35);
 }
 
 .share-fab:active {

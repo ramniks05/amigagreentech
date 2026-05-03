@@ -1,19 +1,22 @@
-// Dummy contact data – replace with real details when ready
+/** India mobile without + (used for tel: and wa.me) — phone & WhatsApp use the same number */
+const MOBILE_INTERNATIONAL = '919355532554'
 
 export const CONTACT = {
-  address: '123 Green Tech Park, Sector 5, Bangalore, Karnataka 560001, India',
-  addressShort: '123 Green Tech Park, Bangalore 560001',
-  mobile: '+91 98765 43210',
-  mobileRaw: '919876543210',
-  email: 'contact@amigagreentech.com',
-  whatsappNumber: '919876543210',
+  address: 'D2, D Block market, Sector 55, Noida, Uttar Pradesh, India',
+  addressShort: 'D2, D Block market, Sector 55, Noida',
+  mobile: '+91 93555 32554',
+  mobileRaw: `+${MOBILE_INTERNATIONAL}`,
+  email: 'keshavgupta@amigasgreentech.com',
+  /** Same as phone — WhatsApp links use this */
+  whatsappNumber: MOBILE_INTERNATIONAL,
 }
 
 export const SOCIAL_LINKS = {
-  facebook: 'https://www.facebook.com/',
+  facebook: 'https://www.facebook.com/share/1awDoCEpy9/',
   twitter: 'https://twitter.com/',
   linkedin: 'https://www.linkedin.com/company/',
-  instagram: 'https://www.instagram.com/',
+  instagram: 'https://www.instagram.com/amigasgreentech/',
+  youtube: 'https://www.youtube.com/@amigasgreentech?si=mIbaU0KFjG0LhnzA',
 }
 
 export const whatsappUrl = (number = CONTACT.whatsappNumber, message = '') => {

@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import { SurveyQR } from './SurveyQR'
 import { CONTACT } from './contactData'
+import { COMPANY } from '../company'
 import { SocialIcons, WhatsAppButton } from './SocialIcons'
 import './Footer.css'
 
-const DESCRIPTION = 'Amiga Green Tech works in renewable energy, solar systems, EV batteries, energy storage, and sustainable power solutions for industrial, commercial, and domestic use.'
+const NOIDA_MAP =
+  'https://www.openstreetmap.org/export/embed.html?bbox=77.36%2C28.52%2C77.44%2C28.60&layer=mapnik&marker=28.56%2C77.40'
 
 export default function Footer() {
   return (
@@ -12,8 +14,8 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="footer-grid">
           <div className="footer-about">
-            <h3 className="footer-brand">Amiga Green Tech</h3>
-            <p className="footer-desc">{DESCRIPTION}</p>
+            <h3 className="footer-brand">{COMPANY.shortName}</h3>
+            <p className="footer-desc">{COMPANY.vision}</p>
             <div className="footer-contact">
               <a href={`mailto:${CONTACT.email}`} className="footer-contact__item footer-contact__email">
                 <span className="footer-contact__icon" aria-hidden>✉</span>
@@ -29,13 +31,15 @@ export default function Footer() {
               </p>
             </div>
             <div className="footer-links">
-              <Link to="/">About</Link>
+              <Link to="/">Home</Link>
+              <Link to="/about">About</Link>
+              <Link to="/research">Research</Link>
               <Link to="/survey">Survey</Link>
-              <a href="/#contact">Contact</a>
+              <Link to="/contact">Contact</Link>
             </div>
             <div className="footer-social-row">
               <SocialIcons />
-              <WhatsAppButton variant="pill" message="Hi, I have an enquiry." label="Chat on WhatsApp" />
+              <WhatsAppButton variant="pill" message={`Hi, I have an enquiry for ${COMPANY.shortName}.`} label="Chat on WhatsApp" />
             </div>
           </div>
           <div className="footer-survey">
@@ -47,8 +51,8 @@ export default function Footer() {
             <h3 className="footer-map-title">Find us</h3>
             <div className="footer-map">
               <iframe
-                title="Office location map"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=77.57%2C12.96%2C77.67%2C13.02&layer=mapnik&marker=12.97%2C77.62"
+                title="Office location — Noida"
+                src={NOIDA_MAP}
                 width="100%"
                 height="160"
                 style={{ border: 0 }}
@@ -57,11 +61,11 @@ export default function Footer() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-            <p className="footer-map-hint">Replace with your office address in map embed</p>
+            <p className="footer-map-hint">Noida office (approximate map pin)</p>
           </div>
         </div>
         <div className="footer-bottom">
-          <p className="footer-copy">&copy; {new Date().getFullYear()} Amiga Green Tech. All rights reserved.</p>
+          <p className="footer-copy">&copy; {new Date().getFullYear()} {COMPANY.legalName}. All rights reserved.</p>
         </div>
       </div>
     </footer>

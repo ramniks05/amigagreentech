@@ -59,6 +59,11 @@
   color: white;
 }
 
+.site-footer .social-icon--youtube:hover {
+  background: #ff0000;
+  color: white;
+}
+
 /* WhatsApp button with label (e.g. "Chat on WhatsApp") */
 .social-icon__label {
   margin-left: 0.35rem;

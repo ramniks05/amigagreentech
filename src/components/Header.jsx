@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { CONTACT } from './contactData'
+import { COMPANY } from '../company'
 import { WhatsAppButton } from './SocialIcons'
 import './Header.css'
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const location = useLocation()
-  const isSurvey = location.pathname === '/survey'
+  const path = location.pathname
 
   const Icon = ({ children, ...props }) => (
     <span className="header-icon" aria-hidden {...props}>{children}</span>
@@ -36,16 +37,7 @@ function Header() {
               </Icon>
               <span className="top-bar-item__text">{CONTACT.mobile}</span>
             </a>
-            <span className="top-bar-item top-bar-item--muted" aria-hidden>
-              <Icon>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-              </Icon>
-              <span className="top-bar-item__text">{CONTACT.addressShort}</span>
-            </span>
-            <WhatsAppButton message="Hi, I have an enquiry for Amiga Green Tech." className="top-bar-whatsapp" label="" />
+            <WhatsAppButton message={`Hi, I have an enquiry for ${COMPANY.legalName}.`} className="top-bar-whatsapp" label="" />
           </div>
         </div>
       </div>
@@ -61,7 +53,7 @@ function Header() {
               </svg>
             </span>
             <span className="logo-text">
-              <span className="logo-text__name">Amiga</span>{' '}
+              <span className="logo-text__name">Amigas</span>{' '}
               <span className="logo-text__green">Green</span>{' '}
               <span className="logo-text__name">Tech</span>
             </span>
@@ -78,14 +70,12 @@ function Header() {
             <span className="nav-toggle-bar" />
           </button>
           <nav className={`main-nav ${mobileMenuOpen ? 'is-open' : ''}`}>
-            <Link to="/" onClick={() => setMobileMenuOpen(false)} className={!isSurvey ? 'active' : ''}>About</Link>
-            {!isSurvey && (
-              <>
-                <a href="#objectives" onClick={() => setMobileMenuOpen(false)}>Objectives</a>
-                <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-              </>
-            )}
-            <Link to="/survey" onClick={() => setMobileMenuOpen(false)} className={isSurvey ? 'active' : ''}>Survey</Link>
+            <Link to="/" onClick={() => setMobileMenuOpen(false)} className={path === '/' ? 'active' : ''}>Home</Link>
+            <Link to="/about" onClick={() => setMobileMenuOpen(false)} className={path === '/about' ? 'active' : ''}>About</Link>
+            <Link to="/research" onClick={() => setMobileMenuOpen(false)} className={path === '/research' ? 'active' : ''}>Research</Link>
+            <Link to="/survey" onClick={() => setMobileMenuOpen(false)} className={path === '/survey' ? 'active' : ''}>Survey</Link>
+            <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className={path === '/contact' ? 'active' : ''}>Contact</Link>
+            <a href="/#objectives" onClick={() => setMobileMenuOpen(false)} className={path === '/' ? '' : 'main-nav__secondary'}>Objectives</a>
           </nav>
         </div>
       </header>
