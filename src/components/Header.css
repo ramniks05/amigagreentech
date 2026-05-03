@@ -2,15 +2,17 @@
 
 /* ----- Top bar ----- */
 .top-bar {
+  width: 100%;
   background: var(--color-topbar);
   color: rgba(255, 255, 255, 0.92);
 }
 
+/* Full-bleed (matches footer; main content still uses --max-width) */
 .top-bar-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0.6rem var(--page-gutter);
+  max-width: none;
   width: 100%;
+  margin: 0;
+  padding: 0.6rem var(--page-gutter);
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -89,6 +91,7 @@
 
 /* ----- Main header ----- */
 .site-header {
+  width: 100%;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -98,10 +101,10 @@
 }
 
 .header-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0.75rem var(--page-gutter);
+  max-width: none;
   width: 100%;
+  margin: 0;
+  padding: 0.75rem var(--page-gutter);
   box-sizing: border-box;
   display: flex;
   align-items: center;

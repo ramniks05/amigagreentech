@@ -1,16 +1,18 @@
 /* Shared Footer - Description + Small map + Links */
 
 .site-footer {
+  width: 100%;
   background: var(--color-text);
   color: rgba(255, 255, 255, 0.88);
   margin-top: auto;
 }
 
+/* Full-bleed footer (main site stays capped via --max-width) */
 .footer-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 2rem var(--page-gutter) 1.5rem;
+  max-width: none;
   width: 100%;
+  margin: 0;
+  padding: 2rem var(--page-gutter) 1.5rem;
   box-sizing: border-box;
 }
 
@@ -65,7 +67,7 @@
 .footer-desc {
   font-size: 0.875rem;
   line-height: 1.55;
-  max-width: min(40rem, 100%);
+  max-width: none;
   margin-bottom: 1rem;
   opacity: 0.92;
 }
