@@ -30,30 +30,70 @@ function AboutUs() {
 
       <main>
         <section className="hero" id="about" aria-labelledby="hero-heading">
-          <div className="hero-bg" aria-hidden />
+          <div className="hero-bg" aria-hidden>
+            <span className="hero-blob hero-blob--1" />
+            <span className="hero-blob hero-blob--2" />
+            <span className="hero-grid" />
+          </div>
+
           <div className="hero-inner">
             <div className="hero-content">
-              <span className="hero-eyebrow">{COMPANY.industry}</span>
+              <span className="hero-eyebrow">
+                <span className="hero-eyebrow__pulse" aria-hidden />
+                {COMPANY.industry}
+              </span>
+
               <h1 id="hero-heading" className="hero-title">
-                {COMPANY.tagline}
+                Innovating{' '}
+                <span className="hero-title__accent">green technology</span>
+                {' '}for a{' '}
+                <span className="hero-title__under">sustainable tomorrow</span>.
               </h1>
-              <p className="hero-lead">
-                {COMPANY.vision}
-              </p>
+
+              <p className="hero-lead">{COMPANY.vision}</p>
+
               <div className="hero-actions">
-                <Link to="/research" className="hero-cta hero-cta--primary">Explore our research</Link>
-                <Link to="/survey" className="hero-cta hero-cta--ghost">Participate in survey</Link>
+                <Link to="/research" className="hero-cta hero-cta--primary">
+                  <span>Explore our research</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <Link to="/survey" className="hero-cta hero-cta--ghost">
+                  Participate in survey
+                </Link>
               </div>
-              <p className="hero-meta">
-                <a href="#objectives" className="hero-meta-link">Corporate objectives (MoA)</a>
-                {' · '}
-                <Link to="/about" className="hero-meta-link">About the company</Link>
-              </p>
+
+              <ul className="hero-meta-list" aria-label="Quick links">
+                <li><a href="#objectives">Corporate objectives</a></li>
+                <li><Link to="/about">About the company</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
+              </ul>
             </div>
+
             <div className="hero-media">
               <div className="hero-media-frame">
+                <span className="hero-media-glow" aria-hidden />
                 <img src={HERO_IMAGE} alt="Illustration: solar landscape and clean energy" className="hero-img" loading="eager" />
+
+                <div className="hero-floating hero-floating--badge" aria-hidden>
+                  <span className="hero-floating__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </span>
+                  <div>
+                    <strong>R&amp;D ongoing</strong>
+                    <span>EV · Solar · Storage</span>
+                  </div>
+                </div>
+
+                <div className="hero-floating hero-floating--stat" aria-hidden>
+                  <span className="hero-floating__num">{FOCUS_AREAS.length}</span>
+                  <span className="hero-floating__lbl">focus areas<br />driving impact</span>
+                </div>
               </div>
+
               <ul className="hero-tags" aria-label="Focus areas">
                 {FOCUS_AREAS.map((f) => (
                   <li key={f.key}>{f.title}</li>

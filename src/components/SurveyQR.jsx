@@ -30,7 +30,7 @@ export function SurveyQR({ size = 160, showLabel = true, variant = 'card' }) {
           level="M"
           includeMargin={true}
           bgColor="#ffffff"
-          fgColor="#2E7D32"
+          fgColor="#6B8E23"
           role="img"
           aria-label="QR code to open Green Energy & EV Survey"
         />

@@ -1,21 +1,21 @@
-/* Amigas Green Tech — client palette (#2E7D32) */
+/* Amigas Green Tech — client palette: olive green + beige */
 :root {
-  --color-primary: #2e7d32;
-  --color-primary-dark: #1b5e20;
-  --color-primary-light: #43a047;
-  --color-accent: #26a69a;
-  /* Third contrast: top header bar (distinct from primary greens) */
-  --color-topbar: #1b3d1f;
-  --color-text: #1a2e24;
-  --color-text-muted: #4a6356;
-  --color-bg: #f7faf7;
-  --color-bg-card: #ffffff;
-  --color-border: #cfe8d4;
+  --color-primary: #6b8e23;        /* olive drab */
+  --color-primary-dark: #556b2f;   /* dark olive green */
+  --color-primary-light: #8dae3f;  /* lighter olive */
+  --color-accent: #b8860b;         /* warm beige/tan accent (dark goldenrod) */
+  /* Top bar — deep olive, distinct from primary */
+  --color-topbar: #3d4818;
+  --color-text: #2a2f18;           /* very dark olive */
+  --color-text-muted: #5c5f4a;
+  --color-bg: #f5eedc;             /* beige page background */
+  --color-bg-card: #fffdf6;        /* warm off-white card */
+  --color-border: #e0d8c0;         /* soft beige border */
   --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
   --font-display: 'Fraunces', Georgia, serif;
-  --shadow-sm: 0 1px 3px rgba(46, 125, 50, 0.08);
-  --shadow-md: 0 4px 12px rgba(46, 125, 50, 0.1);
-  --shadow-lg: 0 12px 32px rgba(46, 125, 50, 0.12);
+  --shadow-sm: 0 1px 3px rgba(107, 142, 35, 0.08);
+  --shadow-md: 0 4px 12px rgba(107, 142, 35, 0.12);
+  --shadow-lg: 0 12px 32px rgba(107, 142, 35, 0.14);
   --radius: 8px;
   --radius-lg: 12px;
   /* Tighter than full HD width (~75% scale feel on large screens) */

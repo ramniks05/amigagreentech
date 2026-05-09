@@ -219,7 +219,7 @@
 
 .main-nav a:hover {
   color: var(--color-primary);
-  background: rgba(46, 125, 50, 0.08);
+  background: rgba(107, 142, 35, 0.08);
 }
 
 .main-nav__secondary {
@@ -230,7 +230,7 @@
 .main-nav a.active {
   color: var(--color-primary);
   font-weight: 600;
-  background: rgba(46, 125, 50, 0.1);
+  background: rgba(107, 142, 35, 0.1);
 }
 
 @media (max-width: 1024px) {
