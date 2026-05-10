@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-about">
             <h3 className="footer-brand">{COMPANY.shortName}</h3>
-            <p className="footer-desc">{COMPANY.vision}</p>
+            <p className="footer-desc">{COMPANY.tagline}</p>
             <div className="footer-contact">
               <a href={`mailto:${CONTACT.email}`} className="footer-contact__item footer-contact__email">
                 <span className="footer-contact__icon" aria-hidden>✉</span>

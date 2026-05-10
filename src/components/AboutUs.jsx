@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
+import HeroCarousel from './HeroCarousel'
+import VideoSpotlight from './VideoSpotlight'
 import { SurveyQRBlock } from './SurveyQR'
 import { COMPANY, FOCUS_AREAS, RESEARCH_HIGHLIGHTS } from '../company'
 import './AboutUs.css'
@@ -21,87 +23,13 @@ const STATS = [
   { value: '24/7', label: 'Public engagement', icon: 'support' },
 ]
 
-const HERO_IMAGE = '/images/about-green-energy.png'
-
 function AboutUs() {
   return (
     <div className="page-wrap">
       <Header />
 
       <main>
-        <section className="hero" id="about" aria-labelledby="hero-heading">
-          <div className="hero-bg" aria-hidden>
-            <span className="hero-blob hero-blob--1" />
-            <span className="hero-blob hero-blob--2" />
-            <span className="hero-grid" />
-          </div>
-
-          <div className="hero-inner">
-            <div className="hero-content">
-              <span className="hero-eyebrow">
-                <span className="hero-eyebrow__pulse" aria-hidden />
-                {COMPANY.industry}
-              </span>
-
-              <h1 id="hero-heading" className="hero-title">
-                Innovating{' '}
-                <span className="hero-title__accent">green technology</span>
-                {' '}for a{' '}
-                <span className="hero-title__under">sustainable tomorrow</span>.
-              </h1>
-
-              <p className="hero-lead">{COMPANY.vision}</p>
-
-              <div className="hero-actions">
-                <Link to="/research" className="hero-cta hero-cta--primary">
-                  <span>Explore our research</span>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                    <path d="M5 12h14M13 5l7 7-7 7" />
-                  </svg>
-                </Link>
-                <Link to="/survey" className="hero-cta hero-cta--ghost">
-                  Participate in survey
-                </Link>
-              </div>
-
-              <ul className="hero-meta-list" aria-label="Quick links">
-                <li><a href="#objectives">Corporate objectives</a></li>
-                <li><Link to="/about">About the company</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
-              </ul>
-            </div>
-
-            <div className="hero-media">
-              <div className="hero-media-frame">
-                <span className="hero-media-glow" aria-hidden />
-                <img src={HERO_IMAGE} alt="Illustration: solar landscape and clean energy" className="hero-img" loading="eager" />
-
-                <div className="hero-floating hero-floating--badge" aria-hidden>
-                  <span className="hero-floating__icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </span>
-                  <div>
-                    <strong>R&amp;D ongoing</strong>
-                    <span>EV · Solar · Storage</span>
-                  </div>
-                </div>
-
-                <div className="hero-floating hero-floating--stat" aria-hidden>
-                  <span className="hero-floating__num">{FOCUS_AREAS.length}</span>
-                  <span className="hero-floating__lbl">focus areas<br />driving impact</span>
-                </div>
-              </div>
-
-              <ul className="hero-tags" aria-label="Focus areas">
-                {FOCUS_AREAS.map((f) => (
-                  <li key={f.key}>{f.title}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
+        <HeroCarousel />
 
         <section className="stats" aria-label="Key highlights">
           <div className="stats-inner">
@@ -119,7 +47,8 @@ function AboutUs() {
           <div className="snapshot-inner">
             <h2 id="snapshot-heading" className="snapshot-title">About {COMPANY.shortName}</h2>
             <p className="snapshot-text">
-              {COMPANY.legalName} builds credibility as an R&amp;D-driven green technology company—showcasing research, running public surveys for data, and engaging investors, partners, government stakeholders, and the wider public on sustainability.
+              At {COMPANY.shortName}, we focus on R&amp;D in environmental and energy technologies—electric mobility, clean energy, and pollution control—for a cleaner, smarter, more self-reliant world.{' '}
+              <Link to="/about" className="snapshot-more">Read about us →</Link>
             </p>
           </div>
         </section>
@@ -162,6 +91,8 @@ function AboutUs() {
             </div>
           </div>
         </section>
+
+        <VideoSpotlight />
 
         <section className="objectives" id="objectives" aria-labelledby="objectives-heading">
           <div className="objectives-inner">

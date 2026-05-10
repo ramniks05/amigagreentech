@@ -15,7 +15,7 @@ function Header() {
   )
 
   return (
-    <>
+    <div className="header-stack">
       {/* Top bar: contact with icons + WhatsApp */}
       <div className="top-bar">
         <div className="top-bar-inner">
@@ -45,18 +45,15 @@ function Header() {
       {/* Main header: logo + nav */}
       <header className="site-header">
         <div className="header-inner">
-          <Link to="/" className="logo" onClick={() => setMobileMenuOpen(false)}>
-            <span className="logo-mark" aria-hidden>
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="32" height="32" rx="8" fill="currentColor" />
-                <path d="M16 8l-6 8h4v8h4v-8h4l-6-8z" fill="white" />
-              </svg>
-            </span>
-            <span className="logo-text">
-              <span className="logo-text__name">Amigas</span>{' '}
-              <span className="logo-text__green">Green</span>{' '}
-              <span className="logo-text__name">Tech</span>
-            </span>
+          <Link to="/" className="logo" onClick={() => setMobileMenuOpen(false)} aria-label={COMPANY.legalName}>
+            <img
+              src="/images/logo.png"
+              alt={COMPANY.legalName}
+              className="logo-image"
+              width="200"
+              height="64"
+              decoding="async"
+            />
           </Link>
           <button
             type="button"
@@ -79,7 +76,7 @@ function Header() {
           </nav>
         </div>
       </header>
-    </>
+    </div>
   )
 }
 

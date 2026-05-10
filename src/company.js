@@ -5,7 +5,7 @@ export const COMPANY = {
   shortName: 'Amigas Green Tech',
   tagline: 'Innovating Green Technology for a Sustainable Tomorrow',
   vision:
-    'We are an R&D-driven green technology company building credibility through research, clean energy solutions, and public engagement—attracting investors, partners, and clients while advancing sustainability.',
+    'Our vision is to become a leading green technology innovator by developing sustainable solutions that contribute to cleaner transportation, renewable energy adoption, and a healthier environment for future generations.',
   industry: 'Green Technology / Clean Energy / R&D',
 }
 
