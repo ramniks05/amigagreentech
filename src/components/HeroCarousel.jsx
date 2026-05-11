@@ -1,45 +1,32 @@
-import { useState, useEffect, useCallback } from 'react'
-import { Link } from 'react-router-dom'
-import { COMPANY } from '../company'
-import { HERO_SLIDES } from '../data/heroSlides'
+import { useCallback, useEffect, useState } from 'react'
 
-const AUTO_MS = 7000
+const AUTO_MS = 5500
 
-const THEME_LABEL = {
-  ev: 'Mobility · EV',
-  pollution: 'Environment · Air',
-  solar: 'Energy · Solar',
-}
-
-function SlidePhoto({ aiSrc, fallbackSrc }) {
-  const [src, setSrc] = useState(aiSrc)
-
-  useEffect(() => {
-    setSrc(aiSrc)
-  }, [aiSrc])
-
-  return (
-    <img
-      className="hero-slide__photo"
-      src={src}
-      alt=""
-      role="presentation"
-      loading="lazy"
-      decoding="async"
-      onError={() => setSrc(fallbackSrc)}
-    />
-  )
-}
+const SLIDES = [
+  {
+    id: 'rd',
+    src: '/images/hero-slide-1.png',
+    alt: 'Amigas Green Tech R&D team working on EV battery and charging solutions',
+  },
+  {
+    id: 'solar',
+    src: '/images/hero-slide-2.png',
+    alt: 'Integrated solar grid network — share, store and use clean energy smarter',
+  },
+  {
+    id: 'air',
+    src: '/images/hero-slide-3.png',
+    alt: 'Air pollution research lab — real-time monitoring and nature-based solutions',
+  },
+]
 
 export default function HeroCarousel() {
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
-  const n = HERO_SLIDES.length
+  const n = SLIDES.length
 
   const go = useCallback(
-    (dir) => {
-      setIndex((i) => (i + dir + n) % n)
-    },
+    (dir) => setIndex((i) => (i + dir + n) % n),
     [n],
   )
 
@@ -50,120 +37,68 @@ export default function HeroCarousel() {
   }, [paused, go])
 
   return (
-    <section className="hero" id="about" aria-labelledby="hero-heading">
-      <div className="hero-bg" aria-hidden>
-        <span className="hero-blob hero-blob--1" />
-        <span className="hero-blob hero-blob--2" />
-        <span className="hero-grid" />
-      </div>
-
-      <div className="hero-shell">
-        <div className="hero-split">
-          <div className="hero-brand">
-            <span className="hero-eyebrow">
-              <span className="hero-eyebrow__pulse" aria-hidden />
-              {COMPANY.industry}
-            </span>
-
-            <h1 id="hero-heading" className="hero-title hero-title--compact">
-              <span className="hero-title__line">
-                Innovating <span className="hero-title__accent">Green Technology</span>
-              </span>
-              <span className="hero-title__line">
-                for a <span className="hero-title__under">Sustainable Tomorrow</span>
-              </span>
-            </h1>
-
-            <p className="hero-lead hero-lead--compact">
-              Research, prototypes and field pilots in clean mobility, air quality and solar — built for measurable, on‑ground impact.
-            </p>
-
-            <div className="hero-actions">
-              <Link to="/research" className="hero-cta hero-cta--primary">
-                <span>Explore our research</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                  <path d="M5 12h14M13 5l7 7-7 7" />
-                </svg>
-              </Link>
-              <Link to="/survey" className="hero-cta hero-cta--ghost">
-                Participate in survey
-              </Link>
-            </div>
-          </div>
-
-          <div
-            className="hero-carousel"
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-            role="region"
-            aria-roledescription="carousel"
-            aria-label="Research focus slides"
-          >
-          <div className="hero-carousel__viewport">
-            <button
-              type="button"
-              className="hero-carousel__arrow hero-carousel__arrow--prev"
-              onClick={() => go(-1)}
-              aria-label="Previous slide"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M15 18l-6-6 6-6" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              className="hero-carousel__arrow hero-carousel__arrow--next"
-              onClick={() => go(1)}
-              aria-label="Next slide"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 18l6-6-6-6" />
-              </svg>
-            </button>
+    <section
+      className="hero-slider"
+      aria-roledescription="carousel"
+      aria-label="Amigas Green Tech highlights"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="hero-slider__viewport">
+        <div
+          className="hero-slider__track"
+          style={{ transform: `translateX(-${index * 100}%)` }}
+        >
+          {SLIDES.map((s, i) => (
             <div
-              className="hero-carousel__track"
-              style={{ transform: `translateX(-${index * 100}%)` }}
+              key={s.id}
+              className="hero-slider__slide"
+              aria-hidden={i !== index}
             >
-              {HERO_SLIDES.map((slide) => (
-                <article
-                  key={slide.id}
-                  className={`hero-slide hero-slide--${slide.variant}`}
-                  aria-hidden={HERO_SLIDES[index].id !== slide.id}
-                >
-                  <div className="hero-slide__media">
-                    <SlidePhoto
-                      aiSrc={slide.resolutionAi}
-                      fallbackSrc={slide.resolutionFallback}
-                    />
-                    <div className="hero-slide__media-scrim" aria-hidden />
-                    <span className="hero-slide__chip">
-                      {THEME_LABEL[slide.variant] || slide.variant}
-                    </span>
-                  </div>
-
-                  <div className="hero-slide__caption">
-                    <h3 className="hero-slide__title">{slide.resolutionTitle}</h3>
-                    <p className="hero-slide__text">{slide.issueBody}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="hero-carousel__dots" role="tablist" aria-label="Slide">
-            {HERO_SLIDES.map((s, i) => (
-              <button
-                key={s.id}
-                type="button"
-                role="tab"
-                aria-selected={i === index}
-                aria-label={`Slide ${i + 1}: ${s.issueTitle}`}
-                className={`hero-carousel__dot ${i === index ? 'is-active' : ''}`}
-                onClick={() => setIndex(i)}
+              <img
+                src={s.src}
+                alt={s.alt}
+                className="hero-slider__image"
+                loading={i === 0 ? 'eager' : 'lazy'}
+                decoding="async"
               />
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
+
+        <button
+          type="button"
+          className="hero-slider__arrow hero-slider__arrow--prev"
+          onClick={() => go(-1)}
+          aria-label="Previous slide"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          className="hero-slider__arrow hero-slider__arrow--next"
+          onClick={() => go(1)}
+          aria-label="Next slide"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+
+        <div className="hero-slider__dots" role="tablist" aria-label="Choose slide">
+          {SLIDES.map((s, i) => (
+            <button
+              key={s.id}
+              type="button"
+              role="tab"
+              aria-selected={i === index}
+              aria-label={`Go to slide ${i + 1}`}
+              className={`hero-slider__dot ${i === index ? 'is-active' : ''}`}
+              onClick={() => setIndex(i)}
+            />
+          ))}
         </div>
       </div>
     </section>

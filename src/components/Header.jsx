@@ -50,8 +50,8 @@ function Header() {
               src="/images/logo.png"
               alt={COMPANY.legalName}
               className="logo-image"
-              width="200"
-              height="64"
+              width="220"
+              height="72"
               decoding="async"
             />
           </Link>
