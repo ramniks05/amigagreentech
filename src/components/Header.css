@@ -110,13 +110,15 @@
   max-width: none;
   width: 100%;
   margin: 0;
-  padding: 0.5rem var(--page-gutter);
+  padding: 0.4rem var(--page-gutter);
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  min-height: 76px;
+  min-height: 84px;
+  /* Let an oversized logo spill out without pushing nav around */
+  position: relative;
 }
 
 .logo {
@@ -125,29 +127,44 @@
   text-decoration: none;
   transition: transform 0.2s;
   flex-shrink: 0;
+  /* Allow logo to extend beyond the header height (out of box) */
+  margin: -22px 0;
+  z-index: 2;
 }
 
 .logo:hover {
   text-decoration: none;
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .logo-image {
   display: block;
-  height: clamp(52px, 5.5vw, 68px);
+  height: clamp(86px, 8.5vw, 116px);
   width: auto;
-  max-width: 260px;
+  max-width: 360px;
   object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(46, 50, 16, 0.18));
+}
+
+@media (max-width: 900px) {
+  .logo-image {
+    height: clamp(72px, 9vw, 92px);
+    max-width: 290px;
+  }
 }
 
 @media (max-width: 640px) {
   .header-inner {
-    min-height: 64px;
+    min-height: 68px;
+  }
+
+  .logo {
+    margin: -14px 0;
   }
 
   .logo-image {
-    height: 50px;
-    max-width: 195px;
+    height: 68px;
+    max-width: 230px;
   }
 }
 

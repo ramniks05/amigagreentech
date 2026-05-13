@@ -193,6 +193,24 @@ export default function ResearchPage() {
               </p>
             </div>
           </section>
+
+          <section className="static-section research-page__section">
+            <h2>Featured invention</h2>
+            <Link to="/research/hybrid-battery" className="research-page__feature" aria-label="Read the Hybrid Battery System invention disclosure">
+              <div className="research-page__feature-text">
+                <span className="research-page__feature-tag">Invention disclosure · EV power management</span>
+                <h3>Hybrid Battery System &amp; Charging Management System</h3>
+                <p>
+                  A swappable primary pack, a fixed secondary pack, and a cloud-managed swap ecosystem — built to remove range anxiety,
+                  long charging waits and infrastructure friction. Prototype working and meeting all parameters.
+                </p>
+                <span className="research-page__feature-cta">Read the full disclosure →</span>
+              </div>
+              <div className="research-page__feature-media" aria-hidden>
+                <CategoryThumb visualKey="battery" />
+              </div>
+            </Link>
+          </section>
           <section className="static-section research-page__section">
             <h2>Research categories</h2>
             <ul className="values-grid research-page__category-grid">

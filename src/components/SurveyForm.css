@@ -92,20 +92,20 @@
   transform: translateY(-50%);
   display: flex;
   justify-content: space-between;
-  padding: 0 4%;
+  padding: 0 2%;
   pointer-events: none;
 }
 
 .survey-progress-dot {
   pointer-events: auto;
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  min-height: 44px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   border-radius: 50%;
   border: 2px solid var(--color-border);
   background: var(--color-bg-card);
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--color-text-muted);
   cursor: pointer;
@@ -176,6 +176,20 @@
 
 .survey-field .required {
   color: #c53030;
+}
+
+.survey-qnum {
+  display: inline-block;
+  color: var(--color-primary-dark);
+  font-weight: 800;
+  margin-right: 0.15rem;
+}
+
+.survey-optional {
+  font-weight: 500;
+  color: var(--color-text-muted);
+  font-size: 0.85em;
+  margin-left: 0.25rem;
 }
 
 .survey-field input[type="text"],
@@ -362,6 +376,18 @@
 
   .survey-options {
     gap: 0.5rem;
+  }
+
+  .survey-progress-steps {
+    padding: 0 1%;
+  }
+
+  .survey-progress-dot {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    font-size: 0.75rem;
   }
 
   .survey-actions {

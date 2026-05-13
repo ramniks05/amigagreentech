@@ -3,6 +3,7 @@ import AboutUs from './components/AboutUs'
 import SurveyForm from './components/SurveyForm'
 import AboutPage from './pages/AboutPage'
 import ResearchPage from './pages/ResearchPage'
+import InventionPage from './pages/InventionPage'
 import ContactPage from './pages/ContactPage'
 import ShareSurveyFAB from './components/ShareSurveyFAB'
 import SurveyInvitePopup from './components/SurveyInvitePopup'
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<AboutUs />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/research" element={<ResearchPage />} />
+          <Route path="/research/hybrid-battery" element={<InventionPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/survey" element={<SurveyForm />} />
         </Routes>
