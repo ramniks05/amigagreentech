@@ -508,85 +508,6 @@
   color: var(--color-primary-dark);
 }
 
-/* ---------- Disclosure metadata ---------- */
-
-.invention-page__timeline {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-
-.invention-page__time-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding: 0.9rem 1rem;
-  border-radius: var(--radius-lg);
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  transition: transform 0.3s ease, border-color 0.25s ease, box-shadow 0.3s ease;
-}
-
-.invention-page__time-item:hover {
-  transform: translateY(-2px);
-  border-color: rgba(107, 142, 35, 0.4);
-  box-shadow: 0 12px 28px -22px rgba(46, 50, 16, 0.4);
-}
-
-.invention-page__time-label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
-.invention-page__time-value {
-  font-family: var(--font-display);
-  font-size: 1.02rem;
-  font-weight: 700;
-  color: var(--color-primary-dark);
-}
-
-.invention-page__cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
-  gap: 1rem;
-}
-
-.invention-page__card {
-  padding: 1.1rem 1.2rem 1.25rem;
-  border-radius: var(--radius-lg);
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  box-shadow: 0 14px 32px -28px rgba(46, 50, 16, 0.4);
-  transition: transform 0.3s ease, border-color 0.25s ease, box-shadow 0.3s ease;
-}
-
-.invention-page__card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(107, 142, 35, 0.4);
-  box-shadow: 0 22px 44px -22px rgba(46, 50, 16, 0.45);
-}
-
-.invention-page__card h3 {
-  font-family: var(--font-display);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  margin: 0 0 0.6rem;
-}
-
-.invention-page__card p {
-  margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: var(--color-text);
-}
-
 /* ---------- Footer links ---------- */
 
 .invention-page__footer-links {
@@ -637,8 +558,6 @@
 
   .invention-page__pillar:hover,
   .invention-page__issue:hover,
-  .invention-page__card:hover,
-  .invention-page__time-item:hover,
   .invention-page__footer-links a:hover {
     transform: none;
   }

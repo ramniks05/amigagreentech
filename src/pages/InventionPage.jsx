@@ -108,15 +108,6 @@ const PILLARS = [
   },
 ]
 
-const TIMELINE = [
-  { label: 'Conception', value: 'Aug 2025' },
-  { label: 'First written description', value: 'Sep 2026' },
-  { label: 'Internal disclosure', value: '12 Jan 2026' },
-  { label: 'Alpha testing', value: '19 Dec 2025' },
-  { label: 'Beta testing', value: 'Pending' },
-  { label: 'General release', value: 'Pending' },
-]
-
 function AiImage({ pack, alt, className = '' }) {
   const [src, setSrc] = useState(pack.ai)
   const [loaded, setLoaded] = useState(false)
@@ -390,54 +381,6 @@ export default function InventionPage() {
                 A perfect charging infrastructure plus a well-architected battery system can resolve the bulk
                 of EV adoption issues we see today.
               </p>
-            </div>
-          </section>
-
-          {/* Disclosure metadata */}
-          <section className="invention-page__section invention-page__meta-section">
-            <span className="invention-page__kicker">Disclosure record</span>
-            <h2>Conception, testing &amp; disclosure</h2>
-
-            <div className="invention-page__timeline">
-              {TIMELINE.map((t) => (
-                <div key={t.label} className="invention-page__time-item">
-                  <span className="invention-page__time-label">{t.label}</span>
-                  <span className="invention-page__time-value">{t.value}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="invention-page__cards">
-              <article className="invention-page__card">
-                <h3>Inventor</h3>
-                <p>
-                  <strong>Keshav Gupta</strong><br />
-                  RC 16, Vandan Enclave, Sector 62,<br />
-                  Noida UP 201301<br />
-                  Citizenship: Indian
-                </p>
-              </article>
-              <article className="invention-page__card">
-                <h3>Reduction to practice</h3>
-                <p>
-                  A working prototype has been developed and is meeting all defined parameters across the
-                  hybrid pack, the swap workflow, and the cloud management layer.
-                </p>
-              </article>
-              <article className="invention-page__card">
-                <h3>Internal disclosure</h3>
-                <p>
-                  First disclosed on <strong>12 Jan 2026</strong> to <strong>Shrey Arora</strong>, sharing
-                  the full project details and technical workflow.
-                </p>
-              </article>
-              <article className="invention-page__card">
-                <h3>Outside disclosure</h3>
-                <p>
-                  Engaged with <strong>IP Radiation</strong> for the patent process. No articles, press
-                  releases, advertisements, trade-show appearances, public offers or sales as of this filing.
-                </p>
-              </article>
             </div>
           </section>
 

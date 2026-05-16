@@ -1,0 +1,308 @@
+/* Survey dashboard — sample data view */
+
+.survey-dash__hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.survey-dash__hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 10% 20%, rgba(255, 253, 246, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 95% 90%, rgba(184, 134, 11, 0.18) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.survey-dash__hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.survey-dash__eyebrow {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  margin-bottom: 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 253, 246, 0.14);
+  border: 1px solid rgba(255, 253, 246, 0.28);
+  color: rgba(255, 253, 246, 0.95);
+}
+
+.survey-dash__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 999px;
+  background: rgba(255, 253, 246, 0.12);
+  border: 1px dashed rgba(255, 253, 246, 0.45);
+  color: rgba(255, 253, 246, 0.9);
+}
+
+.survey-dash__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.survey-dash__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.survey-dash__toolbar strong {
+  color: var(--color-primary-dark);
+}
+
+.survey-dash__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
+  gap: 0.85rem;
+}
+
+.survey-dash__stat {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.survey-dash__stat-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.survey-dash__stat-value {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  line-height: 1.1;
+}
+
+.survey-dash__stat-detail {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.survey-dash__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: 1rem;
+}
+
+.survey-dash__panel {
+  padding: 1.15rem 1.2rem 1.25rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.survey-dash__panel--wide {
+  grid-column: 1 / -1;
+}
+
+.survey-dash__panel h2 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-primary-dark);
+  margin: 0 0 1rem;
+}
+
+.survey-dash__panel-lead {
+  margin: -0.5rem 0 1rem;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+/* Horizontal bar chart */
+.survey-dash__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.survey-dash__bar-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) 2.5rem;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.survey-dash__bar-label {
+  font-size: 0.82rem;
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+.survey-dash__bar-track {
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.survey-dash__bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.survey-dash__bar-pct {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: right;
+  color: var(--color-primary-dark);
+}
+
+/* Weekly trend (simple column chart) */
+.survey-dash__trend {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  min-height: 140px;
+  padding-top: 0.5rem;
+}
+
+.survey-dash__trend-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.survey-dash__trend-bar-wrap {
+  width: 100%;
+  max-width: 48px;
+  height: 100px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.survey-dash__trend-bar {
+  width: 100%;
+  border-radius: 6px 6px 2px 2px;
+  background: linear-gradient(180deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+  min-height: 4px;
+}
+
+.survey-dash__trend-count {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.survey-dash__trend-week {
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* Table */
+.survey-dash__table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.survey-dash__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.survey-dash__table th,
+.survey-dash__table td {
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.survey-dash__table th {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  background: rgba(107, 142, 35, 0.06);
+}
+
+.survey-dash__table tr:last-child td {
+  border-bottom: none;
+}
+
+.survey-dash__table td:first-child {
+  font-family: ui-monospace, monospace;
+  font-size: 0.8rem;
+  color: var(--color-primary);
+}
+
+.survey-dash__intent {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(107, 142, 35, 0.12);
+  color: var(--color-primary-dark);
+}
+
+.survey-dash__footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  padding-top: 0.5rem;
+}
+
+.survey-dash__footer-links a {
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .survey-dash__bar-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .survey-dash__bar-pct {
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .survey-dash__bar-fill {
+    transition: none;
+  }
+}
